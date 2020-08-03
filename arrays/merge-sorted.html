@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../prism/prism.css">
+
+    <script src="../prism/prism.js"></script>
+    <title>AlgoInstinct Page template</title>
+  </head>
+  <body>
+    
+   <!-- Do not make any changes in the navbar -->
+    <div class="nav-container">
+        <nav class="pl-3 pt-3 pb-3 navbar navbar-expand-lg">
+            <a class="ml-5 navbar-brand" href="../index.html">AlgoInstinct</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="ml-5 nav-item">
+                  <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="ml-5 nav-item">
+                  <a class="nav-link" href="../index.html#dsalgo">Data Structures</a>
+                </li>
+               
+                <li class="ml-5 nav-item">
+                    <a class="nav-link" href="../index.html#datascience">Data Science</a>
+                  </li>
+
+                  <li class="ml-5 nav-item">
+                    <a class="nav-link" href="../index.html#courses">Career and LifeStyle</a>
+                  </li>
+                
+              </ul>
+              
+            </div>
+          </nav>
+    </div>
+    <!-- Navbar ends here -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12">
+                <!-- This div is for side vertical menu Please do not change it -->
+                <ul class="side-navigation">
+                    <li class="side-navigation-item"><a href="#"><img src="../images/facebook.png" alt=""></a></li>
+                    <li class="side-navigation-item"><a href="#"><img src="../images/linkedin.png" alt=""></a></li>
+                    <li class="side-navigation-item"><a href="#"><img src="../images/twitter.png" alt=""></a></li>
+                    <li class="side-navigation-item"><a href="#"><img src="../images/instagram.png" alt=""></a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="content col-lg-7 col-md-7 col-sm-12">
+                <!-- This div is for main content Do all your stuff here -->
+                <!-- Please change the title and date of the post below -->
+                <h3 class="title"> Merge Sorted Arrays</h3><span class="date badge badge-warning">Monday, August 2,2020</span>
+                <p>
+                   <p class="problem-description">
+                    Valentine week is going on and couple are spending tonnes buying Gifts. 
+                    This time I am also lucky. My girlfriend gave me N number of gift Each having 
+                    a unique integer id. I being a gentlemen also gave her M number of gift. Keep in mind M can 
+                    be less than N or vice-versa.
+                    Now she is demanding a perfect couple selfie with our gifts. She demands me to arrange
+                    all the gift in a sorted fashion to make a super duper selfie.
+                    Help to to achive this programatically. Keep in mind its urgent so we need to do it as fast
+                    as possible else she will leave me
+                   </p>
+            <pre>
+<code class="language-java">
+//Keep in mind we both like to live a messy lifestyle so the array need not to be sorted
+int [] myGift = {10,8,9,2,3,1}
+int [] myLuckGift = {17,65,6,7,11,43}
+//The output shoud be
+//{1,2,3,6,7,8,9,10,11,17,43,65}
+</code>
+            </pre>
+            So how would you tackle this problem if this would have been thrown to you in a real interview? I recommend you to first think of a noob approach to get our work done and then gradually optimize the approach. So how would you do it with brute force?  A simple solution would be to copy both of the arrays into a new array and then sort the new Array using the fastest  Algorithm. I would recommend using a <span class="badge badge-warning">merge sort</span> or <span class="badge badge-warning">Quicksort</span>. 
+            And Hurrah! we are done with our task. What would be the time complexity of this approach? Since we know the time complexity of the fastest sorting algorithm is O(N log<sub>2</sub> N) where N depicts the number of elements that took part in sorting. So here our total number of elements would be n+m so the time taken would be O((N+M)log<sub>2</sub>(N+M))
+            We have done a great job so far but can we somehow optimize it. 
+            Think of a case when the given two Arrays are sorted. This tweak in the problem can help us to achieve our goal in O(M+N) time i.e order of linear time. But keep in mind this would be the case when the arrays are given in sorted fashion. Else we need to sort them first individually which would take O(C log<sub>2</sub> C) where C is defined to be maximum among N,M.
+            
+           <ol>
+                    <li>Take an extra array. Let us name it as ourGifts and initialize its size to be n+m</li>
+                    <li>Now take three variables i,j,k to loop through the arrays.</li>
+                    <li>At any point in time compare element[i] and element[j] and choose the minimum out of them and store in at the kth position in ourGift array. Increment the variables which took part in this operation</li>
+                    <li>Repeat process 3 until one of the arrays is empty</li>
+                    <li>If any of the arrays contains element after step 4 copy these elements as it is in answer array. This means these are the greatest candidates.</li>
+                    <li>WOW!! you just did it</li>
+                </ol>
+
+            
+                <pre>
+                    <code class="language-java">
+class Solution{
+    int[] mergeGift(int [] myGift,int [],myLuckGift){
+        
+    //sort the array to apply our second approach 
+                         
+    Arrays.sort(myGift);
+                        
+    Arrays.sort(muLuckGift);
+                        
+    int n = myGift.length;
+                        
+    int m = myLuckGift.length;
+                        
+    int ourGifts[]=new int[m+n];
+                        
+    int i =0; // traversing varaibel for myGift[]
+                        
+    int j = 0;//traversing varaibel for myLuckGift[]
+                        
+    int k = 0; // traversing variable for ourGifts[]
+                        
+    while(i&#x3C;n &#x26;&#x26; j&#x3C;m){
+        if(myGift[i]&#x3C;=myLuckGift[j]){
+            ourGifts[k++]=myGift[i];
+            i++;
+             }
+        else{
+            ourGifts[k++]=myLuckGift[j];
+            j++;
+            }
+                        
+    }
+                        
+    //handling the case when I gave more gifts
+                        
+    while(i&#x3C;n){
+        ourGifts[k++]=myGift[i];
+            i++;
+            }
+                        
+        //handling the case when she gave more gifts
+                        
+        while(j&#x3C;m){
+            ourGifts[k++]=myLuckGift[j];
+            j++;
+        }
+        
+                        
+        return ourGifts;
+        }
+    }
+                    </code>
+                </pre>
+        
+                If you don't get the idea, I highly recommend you to go through the post again. Always keep in mind it is
+                perfectly fine if you don't know any of the idea described here logic building takes time.
+                Its a long journey but I assure you it is exciting.
+                <br>
+                Cheers!<br>
+                Happy coding<br>
+                Akash Tyagi  <br>     
+                <button class="btn btn-lg btn-cta btn-success"><a class="nav-link" href="./introduction.html"><-Previous</a></button>
+<button class="btn btn-lg btn-cta btn-success"><a class="nav-link" href="./kadanes.html">Next-></a></button>
+
+                </p>
+                    <!-- When writing code write as below use langauge-java langauge-python as per your langauge -->
+<!-- The pre tag below is intentinally left at the corner do not change it -->
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Do not write anything in this area. It is already reserved -->
+                
+            </div>
+
+            
+
+
+
+        </div>
+    </div>
+ <!-- Footer do not change any made to it -->
+ <footer>
+    <h4 class="text-center text-white">AlgoInstinct</h4>
+    <h6 class="mt-5 text-center text-white">Made With Love in India 🇮🇳</h6>
+</footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+.main{
+   background-image:linear-gradient(-90deg,#02203c,#001528);
+  padding-bottom: 7%;
+
+}
+body{
+    font: 14px/20px BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+/* .main::after{
+    content: '';
+    background-image: url('../images/wave-bottom.svg');
+    bottom:30%;
+    position: absolute;
+    width: 100%;
+    height: 275px;
+} */
+.navbar-brand{
+    color:#fff;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+.nav-link{
+    color:#fff;
+    
+}
+.nav-link:hover,.navbar-brand:hover{
+    color:#fff;
+    border-bottom: 1px solid white;
+}
+.main-big-content{
+    text-align: center;
+    color:white;
+    width: 100%;
+    margin-top: 10%;
+}
+.navbar-toggler{
+    background-color: #fff;
+}
+.btn-cta{
+    background-color: #626ee3;
+    color:white;
+}
+.course-section{
+    padding-top:5%;
+}
+.card-text{
+    color:#001528;
+}
+#steps{
+    padding-top:7%;
+}
+img{
+    max-width: 75%;
+}
+.light-border{
+    border-bottom: 1px solid #777;
+    padding-bottom: 4px;
+   
+}
+
+ol.olist{
+  
+    display:flex!important;
+    flex-wrap: wrap!important;
+    justify-content: space-between;
+   
+}
+.lesson-links{
+    color:#15314b;
+    font-size: 1rem;
+}
+
+li.litem{
+  flex: 50%!important;
+  margin-top:1%;
+}
+
+.description,p{
+    font: 14px/20px BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:1rem;
+    font-weight: bold;
+}
+footer{
+    background-color:#15314b;
+    padding:5%;
+}
+#courses{
+    background-color: #f6f9fc;
+}
+
+
+@media screen and (max-width: 375px){
+    li.litem{
+        flex: 100%!important;
+      }
+}
