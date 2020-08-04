@@ -68,3 +68,9 @@ footer{
 .problem-description{
     font-weight: bolder;
 }
+.highlighter{
+    background-color: yellow;
+}
+.note{
+    background-color: #f6f9fc;
+}

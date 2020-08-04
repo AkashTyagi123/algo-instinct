@@ -65,20 +65,79 @@
                 <!-- Please change the title and date of the post below -->
                 <h3 class="title"> Introduction to Asymptotic analysis</h3><span class="date badge badge-warning">Monday, August 1,2020</span>
                 <p>
-                    Before deep-diving into the notion of Asymptotic analysis, I want to make you understand why do we even need to study this topic. Think about how we measure things in the real world, for instance how to we measure the speed of a car,  the weight of a person, and the temperature of a room. The answers to the above questions are quite simple we have different units to measure different quantities. For example, to measure speed we have defined a unit known as km/h, the weight of a person is measured in Kg, and the temperature is measured in degree celsius or sometime in Fahrenheit. These units define how one thing is different from others in a way that one is good and one is bad. We being a programmer deals with a variety of algorithms as a part of our daily routine so it becomes really important to choose one algorithm over another. But the really tough question is which one to choose and how to choose. This is the place where Asymptotic analysis helps us.
-First, let us discuss some of the ideas which can be used to measure the performance of an algorithm then we will look into the idea of asymptotic analysis.
-Let us assume that we define the lines of code in a program to be our measure of performance. But, since the different developers can have different ways of writing code in a given particular language we cannot use this parameter as a measure of performance as it may vary from developer to developer.
-Now, let us consider the speed of execution as a factor. This approach first seems to be a relevant choice but it is deceptive. We all know that different computers have different processing power so the speed of execution depends on the underlying hardware. So this can also not be used as it will be dependent on the underlying hardware.
-Now let us try to understand the idea behind the asymptotic analysis.
-Asymptotic analysis means the order of growth of our algorithm concerning input size N. For example if the complexity of our algorithm is O(N<sup>2</sup>) it simples means that if the input time is doubled the time taken would become four times or simply it varies as a quadratic function of input size. Don't worry if you are struggling with this idea now, it will become more clearer as we proceed to the next chapter of this section. Note that in the above example we used <span class="badge badge-warning">Big-O notation </span>we all be discussing these notations in detail in the subsequent chapters.
+                    <h5>What is an Algorithm?</h5>
+                    Let us consider a problem of preparing Paneer Makhni😋. To prepare it, we follow the steps given below:
+                    <ul>
+                      <li>Get a frying pan.</li>
+                      <li>Get oil</li>
+                      <li>
+                        <ul>
+                          <li>Do we have Oil?</li>
+                          <li><ul>
+                            <li>If yes, put it in frying pan</li>
+                            <li>If no, Go to market and buy oil</li>
+                          </ul></li>
+                        </ul>
+                      </li>
+                      <li>Turn on the stove, etc...</li>
+                    </ul>
+                What we are actually doing is, for a given problem (making Paneer Makhni😋), we are providing a step-by-step procedure
+                for solving it.
+                The formal defination of <span>Algorithm</span> can be stated as <span class="highlighter">It is the step-by-step unambigious instruction to solve a given problem.</span>
+                <br><br>
+                <h5>Why and How to compare Algorithms</h5>
+                Before deep-diving into the notion of Asymptotic analysis, I want to make you understand why do we even need to study this topic. Think about how we measure things in the real world, for instance how to we measure the speed of a car,  the weight of a person, and the temperature of a room. The answers to the above questions are quite simple we have different units to measure different quantities. For example, to measure speed we have defined a unit known as km/h, the weight of a person is measured in Kg, and the temperature is measured in degree celsius or sometime in Fahrenheit. These units define how one thing is different from others in a way that one is good and one is bad. We being a programmer deals with a variety of algorithms as a part of our daily routine so it becomes really important to choose one algorithm over another. But the really tough question is which one to choose and how to choose. This is the place where Asymptotic analysis helps us.
+                First, let us discuss some of the ideas which can be used to measure the performance of an algorithm then we will look into the idea of asymptotic analysis.
+                Let us assume that we define the lines of code in a program to be our measure of performance. But, since the different developers can have different ways of writing code in a given particular language we cannot use this parameter as a measure of performance as it may vary from developer to developer.
+                Now, let us consider the speed of execution as a factor. This approach first seems to be a relevant choice but it is deceptive. We all know that different computers have different processing power so the speed of execution depends on the underlying hardware. So this can also not be used as it will be dependent on the underlying hardware.
+                Now let us try to understand the idea behind the asymptotic analysis.
+                Asymptotic analysis means the order of growth of our algorithm concerning input size N. For example if the complexity of our algorithm is O(N<sup>2</sup>) it simples means that if the input time is doubled the time taken would become four times or simply it varies as a quadratic function of input size. Don't worry if you are struggling with this idea now, it will become more clearer as we proceed to the next chapter of this section. Note that in the above example we used <span class="badge badge-warning">Big-O notation </span>we all be discussing these notations in detail in the subsequent chapters.
+                <br><br>
+                <h5>Types of Analysis</h5>
+                <ol>
+                  <li><strong>Worst Case:-</strong>The worst case Analysis defines the input for which the algorithm takes a long time (slowest time to complete)
+                  .Input is the one for which the algorithm runs the slowest. It is represented by Big O notation.
+                  </li>
+                  <li><strong>Best Case:-</strong>The best case Analysis defines the input for which the algorithm takes the least time.Input is the one for which the algorithm runs fastest.
+                    It is represented as Big Omega(Ω) notation.
+                  </li>
+                  <li><strong>Average Case:-
 
-See you in the subsequent chapters.<br>
+                  </strong>The Average case provide a prediction about the running time of the algorithm.Run the 
+                  algorithm many time, using many different inputs that come from some distribution that generate these inputs, compute
+                  the total running time is obtained by adding the individual times and then dividing by number of trials.
+
+                </li>
+                </ol>
+
+                <br><br>
+                <h5>What is Rate of Growth?</h5>
+                The rate at which the running time of a function increase as a function of input is called as <span class="highlighter">rate of growth</span>.
+                Always remeber when dealing with functions for larger inputs we can always ignore the lower order terms. Means if 
+                a function contains terms like N<sup>4</sup>, N<sup>2</sup>, N ,and a constant C. We can ignore the lower order terms and provide the 
+                rate of growth as per N<sup>4</sup>.
+                It is similar to the fact that when you visit a shop to buy a Car and a bicycle and your friend see you there. When he asks you 
+                what are you buying you will say a car since the cost of bicyle can be neglected in front of car.
+                Following is an image depicting various rate of growth we will be using in decreasing order. You don't need
+                to mug it up, just have a look at it. After practicing question things will become more clear.
+                <br><br>
+                <img src="../images/growth.png" alt=""><br>
+               
+                <span class="badge badge-danger">Note</span> <span class="note">
+                  I could discuss a whole bunch of defination here regarding Big O notation, Big Omega (Ω) notation,
+                and Theta( Θ ) notation. But I won't do it here because it is not going to help you crack coding interview in any way.
+                The important thing is how do we calculate the complexity, more importantly worst case beacuse that is what we 
+                are more concerned about. We will do this exercise in the next section, till then stay calm and code.
+                </span>
+
+<br><br>See you in the subsequent chapters.<br>
 Cheers<br>
 Happy coding<br>
 Akash Tyagi
 <br>
 
-<button class="btn btn-lg btn-cta btn-success">Next-></button>
+
+<button class="btn btn-lg btn-cta btn-success"><a class="nav-link" href="./how-to-analyse.html">Next-></a></button>
 
                 </p>
                     <!-- When writing code write as below use langauge-java langauge-python as per your langauge -->

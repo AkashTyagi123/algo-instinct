@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../prism/prism.css">
+
+    <script src="../prism/prism.js"></script>
+    <title>AlgoInstinct</title>
+  </head>
+  <body>
+    
+   <!-- Do not make any changes in the navbar -->
+    <div class="nav-container">
+        <nav class="pl-3 pt-3 pb-3 navbar navbar-expand-lg">
+            <a class="ml-5 navbar-brand" href="../index.html">AlgoInstinct</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="ml-5 nav-item">
+                  <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="ml-5 nav-item">
+                  <a class="nav-link" href="../index.html#dsalgo">Data Structures</a>
+                </li>
+               
+                <li class="ml-5 nav-item">
+                    <a class="nav-link" href="../index.html#datascience">Data Science</a>
+                  </li>
+
+                  <li class="ml-5 nav-item">
+                    <a class="nav-link" href="../index.html#courses">Career and LifeStyle</a>
+                  </li>
+                
+              </ul>
+              
+            </div>
+          </nav>
+    </div>
+    <!-- Navbar ends here -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12">
+                <!-- This div is for side vertical menu Please do not change it -->
+                <ul class="side-navigation">
+                    <li class="side-navigation-item"><a href="#"><img src="../images/facebook.png" alt=""></a></li>
+                    <li class="side-navigation-item"><a href="#"><img src="../images/linkedin.png" alt=""></a></li>
+                    <li class="side-navigation-item"><a href="#"><img src="../images/twitter.png" alt=""></a></li>
+                    <li class="side-navigation-item"><a href="#"><img src="../images/instagram.png" alt=""></a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="content col-lg-7 col-md-7 col-sm-12">
+                <!-- This div is for main content Do all your stuff here -->
+                <!-- Please change the title and date of the post below -->
+                <h3 class="title"> How to we measure the asymptotic Analysis</h3><span class="date badge badge-warning">Tuesday, August 2,2020</span>
+                <p>
+                    
+                  First of all, I would like to congratulate you on completing your first step. I agree the previous section was a bit boring 🥴 and full of theoretical stuff.
+Here comes a piece of good news for you this section is full of questions and I am sure you will find them interesting.
+Let's move on coders...
+<br>So the agenda of this article is how do we measure the complexity of an algorithm. A simple trick to perform this task is to count the number of instructions your code executes, formulate it as a function and find the rate of growth of that function. Let's look into some examples regarding the same.
+                  <br><br>
+                  <h5>Some Guidelines to keep in mind</h5>
+                  <ol>
+                    <li><strong>Loops:-</strong>
+                    The running time of loop is defined as the number of time the loop runs multiplied by the time taken by
+                    the instruction inside loop.
+<pre>
+  <code class="language-java">
+//loop executing N times
+for(int i=0;i&#x3C;N;i++){
+  m=m+2; //constant time operation let the constant time be C
+}
+  </code>
+</pre>
+                
+    So the total number of instruction executed is N*C. On observing carefully we see that for larger value of n 
+    the rate of growth is linear times constant which is also linear. So the complexity is O(N).
+                    </li>
+
+
+
+
+
+                    <li><strong>Nested loops:-</strong> Start computing the complexity from inner loop and move outside.
+                      The total complexity is product of complexity of both loop.
+                
+                      
+  <pre>
+    <code class="language-java">
+  //loop executing N times
+  for(int i=0;i&#x3C;N;i++){
+    //loop executing m times
+    for(int j=0;j&#x3C;M;j++){
+    //constant time operation let it be C
+      x=x+2;
+    }
+  }
+    </code>
+  </pre>
+                  
+    So the total number of times the inner loop is executing is M and it is having one constant time operation. So, its complexity 
+    is O(M*C). Now the outer loop is executing this loop N number of times so the total instructions count would be 
+    N*M*C. On larger value of N and M we can negect C as it is a mere constant so its complexity is O(N*M).
+                      </li>
+
+                      <li><strong>Consecutive statement:-</strong> The complexity would be the sum of complexities of both the statmment.
+
+                  
+                        
+    <pre>
+      <code class="language-java">
+
+        //loop executing N times
+        for(int i=0;i&#x3C;N;i++){
+          //loop executing m times
+          for(int j=0;j&#x3C;M;j++){
+          //constant time operation let it be C
+            x=x+2;
+          }
+        }
+
+
+    //loop executing N times
+    for(int i=0;i&#x3C;N;i++){
+      //loop executing m times
+      for(int j=0;j&#x3C;M;j++){
+      //constant time operation let it be C
+        x=x+2;
+      }
+    }
+      </code>
+    </pre>
+     
+    The total number of instruction executed by first loop is O(N*C) and total number of instruction executed by second loop is O(N*M*C).
+    So the complexity would be O(N*C) + (N*M*C). Talking about the bigger values of N and M we can neglect
+    N*M in front of N*M*C.so now our complexity is O(N*M*C). As we know constants never take part in complexity Analysis
+    so overall complexity is O(N*M). 
+
+
+                        </li>
+  
+                        <li><strong>Logarithmic:-</strong> The complexity would be the number of time the loop runs.
+
+                  
+                        
+                          <pre>
+<code class="language-java">
+                      
+//loop executing N times
+for(int i=1;i&#x3C;N;i*=2){
+  x= x+1 // constant time operation
+  
+}
+                      
+                      
+                         
+                            </code>
+                          </pre>
+
+                    At first thought you might think that the complexity is of linear order. But watch it out, the 
+                    code is deceptive. If you see clearly i is increasing as a factor of 2. If this is the case then
+                    loop is for sure not going to run N times. Let us assume it ran for K times and after K times it quits.
+                    So in total we perform K iterations.
+                    on first iteraton i = 1 and it keeps on going as 2,4,8 . Notice that at any ith iteration
+                    i is 2<sup>i</sup>. So after k iteration loops quit and this is the case when testing condition
+                    becomes false.This implies 
+                    2<sup>k</sup> = N;
+                    On solving this we get k = log<sub>2</sub> N.
+                    Since k is our number of iterations which eventually is our complexity. So our complexity is 
+                    O(log<sub>2</sub> N).
+                  
+                           
+                          
+                      
+                                              </li>
+                  
+                  </ol>
+                  <span class="badge badge-danger">Note</span><span class="note">
+                    It is worth observing that the instructions which are not dependent on input size do 
+                    not contribute to our overall complexity and they are called as constant time operations.
+                    Since this time differ from system to system we usually denote such operation as 
+                    O(1) time complexity.
+                    
+                  </span><br>
+
+                  That was to much to digest. Take your time to understand this stuff and I will see you in next section. 
+                  Till then stay calm and code.
+                  <br>
+                  Cheer!<br>
+                  Happy Coding<br>
+                  Akash Tyagi
+                   <br> <button class="btn btn-lg btn-cta btn-success"><a class="nav-link" href="./introduction.html"><-Previous</a></button>
+                    <button class="btn btn-lg btn-cta btn-success"><a class="nav-link" href="./practice.html">Next-></a></button>
+                </p>
+                    <!-- When writing code write as below use langauge-java langauge-python as per your langauge -->
+<!-- The pre tag below is intentinally left at the corner do not change it -->
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Do not write anything in this area. It is already reserved -->
+                
+            </div>
+
+            
+
+
+
+        </div>
+    </div>
+ <!-- Footer do not change any made to it -->
+ <footer>
+    <h4 class="text-center text-white">AlgoInstinct</h4>
+    <h6 class="mt-5 text-center text-white">Made With Love in India 🇮🇳</h6>
+</footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
