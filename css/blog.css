@@ -74,3 +74,6 @@ footer{
 .note{
     background-color: #f6f9fc;
 }
+.blog-image{
+    max-width: 100%;
+}
